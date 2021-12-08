@@ -11,4 +11,7 @@ class Music:
         self.impact_sound = pygame.mixer.Sound(self.cf.impact_sound)
         self.impact_sound.set_volume(1)
 
+        self.impact_wall_sound = pygame.mixer.Sound(self.cf.impact_wall_sound)
+        self.impact_wall_sound.set_volume(1)
+
 music = Music()

@@ -3,9 +3,9 @@ from pygame.locals import *
 import os
 
 def load_image(name, colorkey=None,img_size=None):
-    fullname = os.path.join('./img/', name)
+    #fullname = os.path.join('./img/', name)
     try:
-        image = pygame.image.load(fullname)
+        image = pygame.image.load(name)
     except:
         print('无法加载图像：', name)
         return

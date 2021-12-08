@@ -33,15 +33,19 @@ class Env:
 
     def set_background(self,path):
         self.screen.fill(WHITE) # 暂定白背景填充
+        background = pygame.image.load(path)
+        self.screen.blit(background,(0,0))
+    def set_background_white(self):
+        self.screen.fill(WHITE) # 暂定白背景填充
 
     def draw_button(self,buttons):
         for b in buttons:
             if b.is_show:
                 self.screen.blit(b.image, b.rect)
 
-    def draw_text(self,text,xy,color=BLACK,size=18,center=None,font_name='simsunnsimsun'):
+    def draw_text(self,text,xy,color=BLACK,size=18,center=None,font_name='fangsong'):
         font = pygame.font.SysFont(font_name, size)
-        text_obj = font.render(text, 1, color)
+        text_obj = font.render(text, True, color)
         text_rect = text_obj.get_rect()
         if center == 'center':
             text_rect.move_ip(xy[0] - text_rect.w // 2, xy[1])
@@ -49,6 +53,7 @@ class Env:
             text_rect.move_ip(xy[0], xy[1])
         # print('画文字：',text,text_rect)
         self.screen.blit(text_obj, text_rect)
+
     def step(self):
         self.space.step(self.dt)
 
